@@ -1,0 +1,186 @@
+//CODIGO HTML
+
+//ESTRUCTURA BASICA DE UN HTML
+
+<html>
+    <head>
+        <title>EJERCICIO TP2</title>
+    </head>
+    <body>
+    </body>
+</html>
+
+Para cerrar fijemonos que usamos /
+------------------------------------------------------------------------------------------
+//COMENTARIO HTML
+
+<!-- Esto es un comentario -->
+------------------------------------------------------------------------------------------
+//FORMA 1: Metodo POST (RECOMENDADO)
+
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>FORMULARIOS PARA EJERCICIOS</title>
+    </head>
+    <body>
+        <form method = "POST" action = "suma.php">
+            <label> Numero 1: <label>
+                <input type = "text" name = "num1"><br>
+            <label> Numero 2: <label>
+                <input type = "text" name = "num2"><br>
+            <input type="submit" name="calcular" value="Calcular">
+        </form>
+    </body>
+<html>
+
+//FORMA 2: Metodo GET
+
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>FORMULARIOS PARA EJERCICIOS</title>
+    </head>
+    <body>
+        <form method = "GET" action = "suma.php">
+            <label> Numero 1: <label>
+                <input type = "text" name = "num1"><br>
+            <label> Numero 2: <label>
+                <input type = "text" name = "num2"><br>
+            <input type="submit" name="calcular" value="Calcular">
+        </form>
+    </body>
+<html>
+
+La forma en la que se van a pasar los parametros de un formulario a una pagina vez es a traves del metodo POST o del metodo GET. Son los dos metodos de envio de parametro.
+
+Metodo GET: cuando yo mando los parametros, esos parametros se visualizan en la barra de navegación o barra de direccion del navegador. Por lo cual si yo llego a montar una clave, la clave va a quedar visible en el navegador web. Por eso acostumbramos a mandar todo por el metodo POST.
+
+Metodo POST: cuando yo mando los valores por el metodo POST, estos no aparecen reflejados en la barra de direcciones asi que pasan medio oculto para quien esta viendo los datos que van por la barra de direcciones.
+
+Propiedad action: Me dice quien sera el archivo que va a procesar los datos que yo tengo en el formualario. En este ejemplo: Yo voy a procesar a los datos que envio a traves del formulario a traves de un archivo que se llama suma.php
+
+label: etiqueta que sin ella funcionaria todo bien.
+
+input: me va a permitir ingresar valores y esos valores ingresados a los input (cuadritos de entrada de datos) van a ser enviados al archivo php que va a ser el encargado de procesar esos valores.
+El input tiene un tipo. Hay muchos tipos de input. En ese ejemplo: el input tiene el type = "text". Pero como se que voy a mandar numeros entonces podria haberle puesto type = "number".
+"number" : solo puede ingresar numeros.
+"text" : puede ingreser numeros, letras, caracteres especiales.
+
+name: Es el nombre que yo le de al input . En este ejemplo name = "num1". Cuando yo mande el valor, en esa variable va a ir el valor que yo haya ingresado en el input, y ese valor va a ser procesado en el archivo php.
+
+<input type="submit" name="calcular" value="Calcular">
+input de Tipo submit de envio (encargado de enviar los datos que yo quiero procesar) que yo le puse de nombre de variable calcular y el texto que voy a visualizar en el buzon Calcular.
+-----------------------------------------------------------------------------------------
+EN EL CASO DE QUE MI ARCHIVO PHP NO ESTE EN EL MISMO DIRECTORIO QUE EL FORMULARIO HAGO:
+
+<form method = "POST" action = "../nombre_carpeta/suma.php"> 
+
+Le digo que salga de donde estoy, que vaya a la carpeta "nombre_carpeta" y busca el archivo suma.php para ejecutar lo que queremos hacer.
+
+Lo recomendable es poner ambos en un mismo directorio.
+-----------------------------------------------------------------------------------------
+//DEFINICION DE VARIABLES EN PHP QUE ENVIA EL FORMULARIO
+
+//En la variable numero1 tengo el primer valor que puse en el input
+$numero1 = $_POST["num1"];
+
+//En la variable numero2 tengo el segundo valor que puse en el input
+$numero2 = $_POST["num2"];
+
+En php hay una variable que se llama $_POST["nombre_variable"] que me permite tomar el valor que viene del formulario y tenerlo disponible para trabajar.
+-----------------------------------------------------------------------------------------
+PARA EJECUTAR ABRO EL FORMULARIO HTML QUE LLAMA AL ARCHIVO PHP QUE ESTA ASOCIADO.
+-----------------------------------------------------------------------------------------
+//CONVERTIR FORMULARIO HTML EN PHP
+
+Solo cambio la extension formulario.php porque php se da cuenta que es html y no hace nada.
+---------------------------------------------------------------------------------------
+//CONVERTIR CODIGO DEL FORMULARIO HTML EN PHP
+
+<?php
+echo '
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>FORMULARIOS PARA EJERCICIOS</title>
+    </head>
+    <body>
+        <form method = "POST" action = "suma.php">
+            <label> Numero 1: <label>
+                <input type = "text" name = "num1"><br>
+            <label> Numero 2: <label>
+                <input type = "text" name = "num2"><br>
+            <input type="submit" name="calcular" value="Calcular">
+        </form>
+    </body>
+<html>
+';
+?>
+
+PHP lee echo y dice que tiene que mostrar todo el formulario en codigo HTML y cuando lo ejecute me va a mostrar exactamente lo mismo. Dentro de PHP estamos embebiendo codigo HTML
+
+----------------------------------------------------------------------------------------
+PUEDO HACER EL FORMULARIO Y ARCHIVO PHP EN UN MISMO ARCHIVO SIN TENER QUE ESPECIFICAR QUE ME VAYA A OTRO ARCHIVO. SIN HACER: action="suma.php"
+
+ <html>
+    <head>
+        <meta charset = "utf-8">
+        <title>FORMULARIOS PARA EJERCICIOS</title>
+    </head>
+    <body>
+        <form method = "POST" action = "suma.php">
+            <label> Numero 1: <label>
+                <input type = "text" name = "num1"><br>
+            <label> Numero 2: <label>
+                <input type = "text" name = "num2"><br>
+            <input type="submit" name="calcular" value="Calcular">
+        </form>
+    </body>
+<html>
+
+//CODIGO PHP
+
+<?php
+       //mi codigo php
+?>
+---------------------------------------------------------------------------------------
+//EJEMPLO DE FORMULARIO QUE SE LLAMA ASI MISMO
+Este unico archivo se llama formularioArchivo.php
+El formulario se llama "formularioArchivo"
+
+//CODIGO HTML
+
+<html>
+    <head>
+        <meta charset = "utf-8">
+        <title>FORMULARIOS PARA EJERCICIOS</title>
+    <!--CUERPO DE MI HTML-->
+    </head>
+    <body>
+        <!--FORMULARIO-->
+        <form method = "POST" action = "formularioArchivo.php">
+            <label> Numero 1: <label>
+                <input type = "text" name = "num1"><br>
+            <label> Numero 2: <label>
+                <input type = "text" name = "num2"><br>
+            <input type="submit" name="calcular" value="Calcular">
+        </form>
+        <!--FIN FORMULARIO-->
+    </body>
+    <!--FIN CUERPO DE MI HTML-->
+<html>
+
+//CODIGO PHP
+
+<?php
+    if(isset($_POST['calcular'])){
+        $numero1 = $_POST["num1"];
+        $numero2 = $_POST["num2"];
+        $suma = $numero1 + $numero2;
+        echo "<br>$numero1 + $numero2 = $suma";
+    }
+?>
+------------------------------------------------------------------------------------------
+
+

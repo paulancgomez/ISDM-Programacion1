@@ -1,0 +1,160 @@
+//FUNCIONES
+
+------------------------------------------------------------------------------------------
+//MODULARIDAD:
+-Definimos modulos en donde cada modulo va a hacer una tarea especifica y va a haber un modulo principal que va a hacer el encargado de llamar a cada uno de los modulos para que vayan trabajando.
+
+-Cada modulo va a hacer UNA tarea en especifica.
+
+-La modularidad surge porque si yo tengo un problema muy grande podemos dividirlo en porciones mas chiquitas que nosotros llamamos modulosy resolver estas porciones mas pequeñas de problema va a ser mas sencillo que atacar todo el problema grande de una sola vez. Una vez que yo haya resuelto cada problema chiquito, los vamos a unir para resolver el problema mas grande.
+
+-Trabajar con la modularidad acomodamos un poco la estructura de mi codigo y hacer que la lectura sea mas sencilla.
+
+-Puedo reutilizar codigo, es decir, voy a programar algo una unica vez y lo voy a usar tantas veces como yo quiera.
+
+-Todos los lenguajes de programacion para llevar a cabo esta tarea usan procedimientos y funciones.
+
+------------------------------------------------------------------------------------------
+//PROCEDIMIENTOS y FUNCIONES
+
+-Son porciones de codigo, subprogramas mas chiquitos que hacen alguna tarea especifica. Programas chiquititos donde cada uno de esos programas chiquititos se le otorga un nombre y pueden comunicarse a traves de parametros.
+
+DIFERENCIAS:
+-La diferencia entre un procedimiento y una funcion es que el procedimiento puede NO devolverme ningun resultado, devolverme UN resultado o MUCHOS resultados. Mientras que cuando yo uso una funcion, la funcion siempre me va a devolver un UNICO resultado.
+
+CUANDO AMBOS ME DEVUELVEN UN VALOR:
+-La funcion me devuelve un tipo de dato simple: numero entero, numero real, un boleano (True, False) o un caracter. Mientras que el procedimiento cuando me devuelve algo lo que me va a devolver un dato simple pero se utiliza el procedimiento en general cuando me devuelve una estructura de datos, ejemplo: un vector, una matriz, un archivo, un objeto.
+
+//PREGUNTA: PHP trabaja con objetos tambien?? o es orientado a objetos??
+
+------------------------------------------------------------------------------------------
+//NOMBRE DE LAS FUNCIONES
+
+-En PHP los procedimientos y las funciones se denominan siempre function.
+-Para diferenciar un procedimiento de una funcion...
+
+------------------------------------------------------------------------------------------
+//COMUNICACION
+
+-Tanto los procedimientos como  las funciones se comunican a traves de los paramentros.
+
+-Los parametros son variables que pueden tomar valores para que la funcion o el procedemiento pueda trabajar. Y tambien a traves de esos parametros yo puedo devolver resultados a partir de estas funciones o procedimientos.
+
+-Hay 2 tipos de parametros: parametros por valor y paramentros por variable.
+
+DIFERENCIA ENTRE PARAMETRO POR VALOR Y PARAMETRO POR VARIABLE
+
+-Parametros por valor: cuando yo defino que la funcion o el procedimiento va a trabajar con un parametro por valor se hace una copia del valor del contenido de la variable y se lo entrega al procedimiento o funcion, y dentro de ellos hago lo que quiero con ese valor variable. Pero cuando retorno al programa principal el valor original que yo le habia dado al procedimiento o funcion sigue permaneciendo en su estado inicial. 
+
+-Parametro por variable: En lugar de darle una copia al procedimiento o funcion, le doy el valor original, es decir, le doy el espacio de memoria donde tengo almacenado ese valor. Cualquier modificacion que se haga dentro de la funcion oprocedimiento afecta al valor general de la variable y cuando retorno al programa principal entonces esa variable vuelve con el valor modificado.
+
+------------------------------------------------------------------------------------------
+//AMBITOS DE LA VARIABLE (Donde viven las variables)
+
+-Todas las variables que yo declare dentro de un procedimiento o funcion van a vivir mientras viva ese procedimiento o funcion. Una vez que ese procedimiento o funcion deje de vivir, la variable deja de vivir.
+
+------------------------------------------------------------------------------------------
+//VARIABLE GLOBALES
+
+-Son las variables que viven durante la ejecucion de todo el programa.
+-El uso de variables globales no es una buena practica de programacion. Cualquier funcion o precedimiento puede tocar ese valor de variable desde cualquier lado del programa y si yo hago esto pierdo el control de quien toco esa variable.
+
+//PREGUNTA: Yo puedo modificar el valor de esa variable desde cualquier funcion o procedimiento?
+
+//PREGUNTA: Podria ser en el caso que yo necesite crear una variable global que contenga el valor de PI. Ponele si tengo que hacer muchas funciones de calculo matematicos, tipo radio de una circunferencia, volumen de una circunferencia, que se yo. entonces crearia una variable global llamada PI=3.1415 bla bla y cada vez que la necesite hago uso de su nombre tipo para no estar definiendola a cada rato no. El valor de PI jamas va a ser modificado.
+------------------------------------------------------------------------------------------
+//ESTRUCURA BASICA
+
+<?php
+//DEFINICION DE PROCEDIMIENTOS Y FUNCIONES
+
+
+//PROGRAMA PRINCIPAL
+
+?>
+
+-Yo voy a definir al principio de mi programa php, todos mis procedimientos y funciones que voy a utilizar y luego voy a llamar a esos procedimientos y funciones desde mi programa principal.
+
+-Aunque en PHP puedo definir las funciones y procedimientos en cualquier lugar. Ejemplo: en PHP puedo trabajar sobre programa principal y ahi nomas definir las funciones y procedimientos y seguir trabajando, y seguir definiendo mas funciones. Pero no es un estilo de programacion adecuado. En la mayoria de los lenguajes yo primero defino todo lo que son procedimientos y funciones, y una vez que estan definidos luego recien los comienzo a llamar.
+
+-En PHP puedo llamar una funcion o procedimiento y definirlo un poco mas abajo. 
+
+------------------------------------------------------------------------------------------
+TODAS LAS FUNCIONES O PROCEDIMIENTOS TIENEN UN NOMBRE Y PUEDEN O NO RECIBIR PARAMETROS.
+------------------------------------------------------------------------------------------
+//DEFINICION PROCEDIMIENTO
+
+function saludo(){
+   //Las instrucciones del procedimiento 
+}
+
+function saludo(){
+   echo "Hola como estas?";
+}
+
+------------------------------------------------------------------------------------------
+//LLAMADA AL PROCEDIMIENTO
+
+//PROGRAMA PRINCIPAL
+saludo();
+
+-Las llamadas son en el programa principal.
+-Por pantalla me muestra "Hola, como estas?"
+
+------------------------------------------------------------------------------------------
+//VARIABLES Y PARAMETROS LLAMADOS IGUAL
+-Por el ambito de las variables locales no hay error.
+
+//DEFINICION DE PROCEDIMIENTOS Y FUNCIONES
+function suma($a, $b){ 
+    $suma = $a + $b;
+    echo "$a + $b = $suma<br>";
+}
+
+//PROGRAMA PRINCIPAL
+$a= Rand(10,20);
+$b= Rand(10,20);
+suma($a, $b);
+
+------------------------------------------------------------------------------------------
+//DIFERENCIA ENTRE PARAMETROS POR VALOR Y POR VARIABLE
+
+//Procedimiento con PARAMETROS POR VALOR y PARAMETROS POR VARIABLE (o por referencia)
+
+function suma2($a, $b, &$res){ 
+    $res = $a + $b;
+}
+
+//PROGRAMA PRINCIPAL
+
+suma2($n1, $n2, $suma);
+echo "$n1 + $n2 = $suma<br>";
+
+-Las variables $a y $b son parametros por valor y $sum es una variable por variable.
+-Los paramentros por variable comienzan con & (ampersand).
+------------------------------------------------------------------------------------------
+//MODIFICO UNA VARIABLE USANDO PARAMENTROS POR VARIABLE
+
+//DEFINCION DE PROCEDIMIENTOS
+function modifico(&$a){ 
+    $a = $a * 10;
+}
+
+//PROGRAMA PRINCIPAL
+
+$a= 2;
+modifico($a);
+
+-Lo que hice fue asignar 2 a la variable a. Luego modifique el valor de la variable a a traves de un procedimiento multiplicandola por 10. El procedimiento me devuelve la variable a que ahora vale 20.
+-----------------------------------------------------------------------------------------
+//MOSTRAR FUNCIONES
+
+$n1= Rand(10,20);
+$n2= Rand(10,20);
+echo "$n1 + $n2 = " . suma($n1, $n2);
+
+-En echo estoy llamando a la funcion suma para que me calcule la suma de $n1 y $n1, y el valor que retorne lo muestre.
+
+-Asi evito asignar el resultado en otra variable y luego mostrar esa variable
+
+-------------------------------------------------------------------------------------------  

@@ -1,0 +1,116 @@
+//FORMULARIO SELECION
+
+<html>
+    <head>
+        <title>
+              Ejercicio: FORMULARIO CON SELECT                   
+        </title>
+    </head>
+<body>
+        
+        <form action="ejemplo_select.php" method="POST">
+            <label>Seleccione un auto:</label>
+            
+            <select name="marcas">
+              <option value="Ninguna">Ninguna</option>
+              <option value="Fiat">Fiat</option>
+              <option value="Renault">Renault</option>
+              <option value="Peugeot">Peugeot</option>
+              <option value="Chevrolet">Chevrolet</option>
+            </select>
+            <!-- FIN SELECCION -->
+
+            <input type="submit" value="SELECCIONAR">
+        </form>
+        
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------
+//PARTES DE FORMULARIO SELECION
+
+//PARTE 1
+
+<form action="ejemplo_select.php" method="POST">
+El formulario va a llamar a una archivo php que se llama "ejemplo_select.php". Ese archivo se va a encargar de procesar los datos que yo envie a traves del metodo POST desde el formulario.
+
+//PARTE 2
+
+<select name="marcas">
+              <option value="Ninguna">Ninguna</option>
+              <option value="Fiat">Fiat</option>
+              <option value="Renault">Renault</option>
+              <option value="Peugeot">Peugeot</option>
+              <option value="Chevrolet">Chevrolet</option>
+            </select>
+Tengo un select que se llama "marcas" y las opciones que tiene son: Fiat, Renault, Peugeot, Chevrolet.
+Y cada una de las opciones tiene asignado un valor: value="Fiat" y ese valor es el que va a viajar y es el que yo voy a evaluar en mi archivo php.
+
+//PARTE 3
+
+<input type="submit" value="SELECCIONAR">
+Luego, tengo un input que es de envio y el envio que le voy a colocar es SELECCIONAR. El valor es el cartelito que aparece en el boton.
+
+-----------------------------------------------------------------------------------------
+//ARCHIVO DEL FORMULARIO
+
+<?php
+
+    $marca=$_POST["marcas"];
+    if ($marca == "Fiat")
+    {
+        echo "Usted seleccionó la marca: FIAT";
+    }
+    else if ($marca == "Renault")
+            {
+                echo "Usted seleccionó la marca: RENAULT";
+            }
+        else if ($marca == "Peugeot")
+                {
+                    echo "Usted seleccionó la marca: PEUGEOT";
+                }
+                else if ($marca == "Chevrolet")
+                    {
+                        echo "Usted seleccionó la marca: CHEVROLET";
+                    }
+                    else
+                    {
+                        echo "Usted NO seleccionó ninguna marca";
+                    }
+
+    echo "<br><br>";
+    switch ($marca)
+        {
+        case "Fiat":
+            echo "A ti te gusta la marca FIAT";
+            break;
+        case "Renault":
+            echo "A ti te gusta la marca RENAULT";
+            break;
+        case "Peugeot":
+            echo "A ti te gusta la marca PEUGEOT";
+            break;
+        case "Chevrolet":
+            echo "A ti te gusta la marca CHEVROLET";
+            break;
+        default:
+            echo "NO seleccionaste ninguna marca";
+        }
+
+?>
+---------------------------------------------------------------------------------------
+//PARTES DEL ARCHIVO DEL FORMULARIO
+
+//PARTE 1
+
+$marca=$_POST["marcas"];
+Defino una variable que se llama "marca", lo que viene posteado en la variable que se llama "marcas". Recordemos que "marcas" era la lista de seleccion. En la variable "marcas" va a venir Fiat, Peugeot o Chevrolet. Entones yo tomo el contenido de la variable "marcas" y lo voy a guardar en una variable que se llama "marca".
+
+//PARTE 2
+
+if ($marca == "Fiat")
+    {
+        echo "Usted seleccionó la marca: FIAT";
+    }
+Si la "marca" es "Fiat" entonces le muestro un cartelito.
+-----------------------------------------------------------------------------------------

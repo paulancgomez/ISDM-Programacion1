@@ -1,0 +1,150 @@
+PHP y HTML trabajan juntos.
+Puedo meter codigo HTML dentro de PHP. Y vicever
+------------------------------------------------------------------------------------
+//ESTRUCTURA BASICA DE PHP
+
+<?php
+?>
+--------------------------------------------------------------------------------------
+<?php ES UN TAG para indicarle al lenguaje que vamos a comenzar a escribir en codigo PHP
+
+?> ES UN TAG
+---------------------------------------------------------------------------------------
+//SALTO DE LINEA
+
+Se usa: <br> o <BR>
+Como el \n en Java
+
+EJEMPLO: echo "La suma es igual a: $suma <br>";
+EJEMPLO: echo "La suma es igual a: $suma <BR>";
+--------------------------------------------------------------------------------------
+//REGLAS DE PRIORIDAD
+
+1° Potencia y Raiz
+2° Producto y Division
+3° Division Entera y Resto Entero
+4° Suma y Resta
+
+------------------------------------------------------------------------------------
+//OPERADORES DE RELACION (O DE COMPARACION)
+
+Igual ==
+Mayor >
+Menor <
+Menor o Igual <=
+Mayor o Igual >=
+Distinto !=
+--------------------------------------------------------------------------------------
+//OPERADORES LOGICOS
+
+NOT: Negacion de P
+NOT(P)
+
+AND: Intersecion de P y Q
+P AND Q
+PHP: && (puedo poner la cantidad de and que quiera en php)
+
+OR: Union de P y Q
+P OR Q
+PHP: ||
+--------------------------------------------------------------------------------------
+//FUNCION RAND
+
+Rand(ini, fin)
+
+-Me genera numeros ENTEROS entre ini y fin (incluidos).
+--------------------------------------------------------------------------------------
+//COMENTARIO EN PHP
+El programa no lo va a tener en cuenta cuando se ejecute
+
+// Comentario de una sola linea
+/* Comentario de dos o mas lineas */
+
+-----------------------------------------------------------------------------------------
+//IMPORTANTE: Debo guardar el archivo con un nombre comenzando con letra mayuscula y sin espacios. Ejemplo: Ejercicio1.
+
+//DEFINICION DE VARIABLES: Una variable en PHP comienza con el signo $, despues del signo $ no debe contener ningun caracter especial, ni un numero. Si o si una letra o guion bajo.
+
+//ASIGNACION: Finalizamos con un punto y coma.
+$numero1 = 5;
+
+//IMPORTANTE: PHP es case-sensitive, es decir, es sensible a las mayusculas y minisculas.
+$numero1 y $Numero1 son variables distintas.
+
+//IMPORTANTE: Al final de cada instruccion pongo ; (punto y coma). El punto y coma nos indica que termina una instruccion.
+
+-------------------------------------------------------------------------------------
+//MOSTRAR VALOR DE VARIABLE
+
+echo $suma
+
+-Se lee eco.
+-Esto muestra en pantalla el contenido que tengo en la variable suma.
+-Echo nos va a permitir mostrar algun valor o algun texto en la pantalla.
+
+--------------------------------------------------------------------------------------
+//MOSTRAR TEXTO
+
+//FORMA 1
+echo "La suma es igual a: $suma";
+
+//FORMA 2: El punto significa concatenacion o union de cadenas
+echo "La suma es igual a: " . $suma;
+
+//FORMA 3: Usando comillas simples 
+echo 'La suma es igual a: ' . $suma;
+
+//FORMA 4: 
+echo "El máximo valor se encuentra en la fila " . ($filaMay+1) . ", columna ". ($columnaMay+1);
+
+//FORMA 5:
+echo 'El máximo valor se encuentra en la fila ' . ($filaMay+1) . ', columna '. ($columnaMay+1);
+
+//FORMA INCORRECTA
+echo "La suma es igual a: " $suma; -> MAL
+echo 'La suma es igual a: . $suma'; -> MAL
+--------------------------------------------------------------------------------------
+//MOSTRAR COMBINADO
+
+ echo "<br>$numero1 + $numero2 = $suma";
+
+---------------------------------------------------------------------------------------
+//ASIGNACION
+
+$numero1 = 5;
+
+-A la variable llamada "numero1" le asigne el valor 5.
+
+---------------------------------------------------------------------------------------
+//GENERAR DE MANERA ALEATORIA
+
+Genera un numero al azar entre 1 al 20 y ese numero se va a guardar en la variable numero1.
+
+$numero1 = Rand(1,20);
+$numero1 = rand(1,20);
+
+Puedo hacer Rand y rand. Eso no va a generar error.
+Random genera solamente numeros pero yo podria de alguna manera asociar esos numeros a letras.
+En el codigo ASCI las letras tienen una posicion.
+A esta en la posicion 65.
+Z esta en la posicion 90
+Entonces puedo generar numeros aleatorios entre 65 y 90, y asociarlos a una letra en el codigo ASCI.
+-----------------------------------------------------------------------------------------
+//RAIZ CUADRADA
+sqrt(9)
+
+//PRODUCTO
+$a * $b
+
+//DIVISION REAL
+$a / $b
+
+//DIVISION ENTERA
+%c = intval($a / $b)
+
+intval es una funcion que me devuelve la parte entera del argumento.
+
+//POTENCIA
+pow(base, exponente)
+pow(2,3): es 2 elevado al cubo.
+------------------------------------------------------------------------------------------

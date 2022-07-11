@@ -1,0 +1,93 @@
+//DEFINIR UN NUMERO ALEATORIA
+
+function definirNumero(&$num){
+        $num= Rand(100,999); 
+        echo "N= $num<br>";
+    }
+
+---------------------------------------------------------------------------------------
+//CANTIDAD DE DIVISORES DE UN NUMERO
+
+function cantDivisores($num){
+    $cant= 0;
+    for ($divisor=1; $divisor<=$num; $divisor++){
+        if($numero % $divisor == 0){
+            $cant++;
+        }
+    }
+    return $cant;
+}
+----------------------------------------------------------------------------------------
+//DETERMINACION DE PRIMO
+
+function esPrimo($num){ 
+    if(cantDivisores($num) > 2){
+        $bool=True;    //ES primo
+    }else{
+        $bool=False;   //NO ES primo
+    }
+    return $bool;
+}
+-----------------------------------------------------------------------------------------
+//CANTIDAD DE DIGITOS
+
+----------------------------------------------------------------------------------------
+//ES PAR
+
+function esPar($num){
+        if($num % 2 == 0){
+            $bool= True;       //Es PAR
+        }
+        else{
+            $bool= False;      //Es IMPAR
+        }
+        return $bool;
+}
+
+----------------------------------------------------------------------------------------
+//ES IMPAR
+
+!esPar($num);
+
+---------------------------------------------------------------------------------------
+//CANTIDAD DE DIGITOS
+
+function cantDigitos($num){
+        $cont= 0;
+        while($num != 0){
+            $num = intval($num / 10);
+            $cont++;
+        }
+        return $cont;
+    }
+
+----------------------------------------------------------------------------------------
+//ES NUMERO ESPECIAL (cuando es par y la cantidad de digitos del numero es impar)
+
+function esEspecial($num){
+        if(esPar($num) && !esPar(cantDigitos($num))){
+            $bool= True;       //Es ESPECIAL
+        }
+        else{
+            $bool= False;      //NO es ESPECIAL
+        }
+        return $bool;
+    }
+
+----------------------------------------------------------------------------------------
+//PRIMO
+
+function EsPrimo($num){
+        $pd=2;
+        while((pd<=intval($num/10)) && ($num % pd !=0){
+            $pd= $pd+1; 
+        }
+        if((pd > intval(x/2)) && (x!=1)){
+            echo "Es primo";
+        }
+        else{
+           echo "No es primo";
+        }
+    }
+
+---------------------------------------------------------------------------------------

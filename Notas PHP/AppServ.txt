@@ -1,0 +1,19 @@
+localhost en el buscador para probar que la instalacion se ha realizado correctamente.
+
+¿Que es AppSer?
+AppServ nos permitira tener listo nuestro PC para trabajar en un ambiente de desarroollo y test local
+Este software permite la instalacion en nuetro equipo Windows de los siguientes paquetes:
+- Apache Web Server
+- Lenguaje PHP
+- Base de datos MySQL
+Administrador de base de Datos PHPMyAdmin
+
+Password: 12345678
+Cuando nos estemos conectando a la base de datos nos lo va a pedir o cuando desde algun archivo PHP nos queramos conectar a consultar algun dato.
+
+En la carpeta AppServ -> www. En esta carpeta es en donde vamos a poner nuestros archivos PHP. La carpeta se llama www porque esta carpeta simula nuestro sitio web en internet. Es nuestro alojamiento en la web. Para crear una carpeta dentro de www, el nombre de esas carpetas deben ser sin un espacio en blanco. Ejemplo: TP2_Semi
+Lo ideal seria que por cada proyecto diferente creemos una carpeta para conservar un orden
+
+¿Como vamos a probar si el programa funciona?
+Abro una vetana de google -> localhost/TP2
+Escribimos el nombre de la carpeta donde esta el archivo 

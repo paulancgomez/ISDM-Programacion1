@@ -1,0 +1,61 @@
+//MATRICES o VECTORES BIDMENSIONALES (tienen dos dimensiones)
+
+Ejemplo: Sopa de letras, sudoku, cricigrama. 
+
+Filas, Columnas, Celdas. Cada elemento o celda se hace referencia por un valor de Fila y un valor de columna.
+
+-Los vectores comienzan a partir de 0.
+-----------------------------------------------------------------------------------------
+//CARGAR TABLA
+
+for($i=0; $i<5; $i++){
+    for($j=0; $j<5; $j++){
+         $A[$i][$j]= Rand(0, 9);
+     }
+}
+
+------------------------------------------------------------------------------------------
+//MOSTRAMOS LA MATRIZ POR FILAS
+
+for($i=0; $i<5; $i++){
+   echo "<br>";
+   for($j=0; $j<5; $j++){
+       echo $matriz[$i][$j] . " || ";
+   }
+}  
+------------------------------------------------------------------------------------------
+//MOSTRAR MATRIZ POR COLUMNA
+
+for($j=0; $j<5; $j++){
+   echo "<br>";
+   for($i=0; $i<5; $i++){
+       echo $matriz[$j][$i] . " || ";
+   }
+}  
+
+------------------------------------------------------------------------------------------
+//MATEMATICA Y PROGRAMACION
+
+23   24    68
+34   99    12
+25   78     89
+
+- MATEMATICAMENTE el mayor SE ENCUENTRA EN LA FILA 2 Y COLUMNA 2.
+
+- EN PROGRAMACION el mayor SE ENCUENTRA EN LA FILA 1 Y COLUMNA 1.
+-------------------------------------------------------------------------------------------
+//OBVIAR LAS LLAVES
+
+for($i=0; $i<3; $i++)
+        for($j=0; $j<3; $j++)
+            $A[$i][$j]= Rand(10, 99);
+
+-No genera error ya que dentro del for tengo 1 for. Y dentro del segundo for tengo 1 una linea de instruccion.
+------------------------------------------------------------------------------------------
+//TRANSPUESTA
+
+//FORMA 1: Creamos una matriz C
+
+//FORMA 2: Mostramos por columna
+
+------------------------------------------------------------------------------------------

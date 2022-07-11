@@ -1,0 +1,15 @@
+//MOSTRAR TODOS LOS DIVISORES DE UN NUMERO X
+
+$numero = Rand(1,100);
+echo "Numero= $n <br>";
+
+for ($divisor=1; $divisor<=$numero; $divisor++)
+{
+    if($numero % $divisor == 0){
+        echo "$divisor // ";
+    }
+}
+----------------------------------------------------------------------------------------
+X / 10: Me devuelve el numero sin el ultimo digito.
+X % 10: Me devuelve el ultimo digito del numero.
+----------------------------------------------------------------------------------------

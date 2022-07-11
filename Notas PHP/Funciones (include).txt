@@ -1,0 +1,67 @@
+//INCLUDE
+
+include 'FuncionesMatrices.php';
+
+-El include lo que hace es incluir el archivo llamado "FuncionesMatrices.php" acá. Ambos estando en la misma carpeta.
+-"FuncionesMatrices.php" es la direccion donde se encuentra el archivo.
+
+-Si esta en otra carpeta, cambio la ruta:
+include 'carpeta/FuncionesMatrices.php';
+Ejemplo FuncionesMatrices esta en la carpeta Funciones entonces:
+include 'Funciones/FuncionesMatrices.php';
+
+---------------------------------------------------------------------------------------
+//REQUIRE
+
+require 'FuncionesMatrices.php';
+
+-Hace lo mismo que include.
+-Puedo incluir o requerir el uso de un archivo donde tengo definida todas las funciones.
+-Lo que hacemos es generar archivos donde tenemos todos los procedimientos y funciones que uno necesita y los debo incluir en las paginas donde los va a utilizar.
+-Esto hace que nuestro codigo sea mas legible y ocupe menos lugar, y sea mas facil de corregir en el momento que tengamos algun error.
+
+------------------------------------------------------------------------------------------
+//DIFERENCIA ENTRE include Y require
+
+-Si yo uso el include, cuando yo tenga algun problema en alguna funcion o no exista alguna funcion o el archivo no llega a existir me marca el error y sigue ejecutandose.
+
+-Mientras que cuando use require me mostra el error y la ejecucion se detiene.
+
+------------------------------------------------------------------------------------------
+//DONDE VA DEFINIDO EL include O requiere
+
+-El include lo puedo poner en cualquier lugar pero para ser ordenados lo ponemos en el inicio de mi programa en php.
+
+PREGUNTA: Se pueden poner mas de un include? Si necesito incluir mas de un archivo??
+
+------------------------------------------------------------------------------------------
+//EJEMPLO
+
+//ARCHIVO LLAMADO "FuncionesMatrices.php"
+
+//DEFINICION DE PROCEDIMIENTOS Y FUNCIONES
+
+function definirTamanio(&$n){
+    ....
+}
+
+function cargaMatriz(&$matriz, $n){
+    ....
+}
+
+function muestraMatriz($matriz, $n){
+    ....
+}
+
+ARCHIVO LLAMADO "Test.php"
+//PROGRAMA PRINCIPAL
+
+<?php
+
+include 'FuncionesMatrices.php';
+
+definirTamanio($n);
+cargaMatriz($A, $n);
+muestraMatriz($A, $n);
+
+?>

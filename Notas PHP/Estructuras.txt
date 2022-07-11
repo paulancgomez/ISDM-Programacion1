@@ -1,0 +1,128 @@
+//CONDICIONAL O SELECCION
+
+//SELECCION SIMPLE
+if(condicion){
+}
+
+//SELECCION DOBLE
+if(condicion){
+}
+else{
+}
+
+//SELECCIONES DOBLES ANIDADAS
+if(condicion){
+} else if(condicion){
+         }else{
+            }
+
+-----------------------------------------------------------------------------------------
+SELECCION:
+Cuando tengo solo una linea de instruccion no hace falta que ponga las llaves.
+Si tengo mas de una linea de instruccion pongo llaves.
+------------------------------------------------------------------------------------------
+//SWITCH: Estructura de seleccion multiple. Es mas ordenado que selecciones dobles anidadas
+
+switch ($marca)
+        {
+        case "Fiat":
+            echo "A ti te gusta la marca FIAT";
+            break;
+        case "Renault":
+            echo "A ti te gusta la marca RENAULT";
+            break;
+        case "Peugeot":
+            echo "A ti te gusta la marca PEUGEOT";
+            break;
+        case "Chevrolet":
+            echo "A ti te gusta la marca CHEVROLET";
+            break;
+        default:
+            echo "NO seleccionaste ninguna marca";
+        }
+------------------------------------------------------------------------------------------
+//CICLO FOR O CICLO PARA
+
+//CICLOS INCONDICIONAL: Porque el for no cumple ninguna condicion
+
+//VOY DE 1 EN 1
+for ($i=1; $i <= 10; $i++)
+        {
+            echo "$i // ";
+        }
+
+//VOY DE 2 EN 2
+ for ($i=1; $i <= 10; $i+=2)
+        {
+            echo "$i // ";
+        }
+
+------------------------------------------------------------------------------------------
+//CICLO WHILE O CICLO MIENTRAS
+
+//CICLO CONDICIONAL: se va a ejecutar mientras cumpla una condicion. Se llama condicional porque evalua condiciones
+
+while ($i <= 10) 
+        {
+            echo "$i // ";
+            $i++;
+        }
+------------------------------------------------------------------------------------------
+//CONOZCO LA CANTIDAD N=5 (FOR)
+
+<?php  
+    $acumulador= 0;
+    for ($i=1; $i<=5; $i++)
+        {
+            $numero= Rand(1,10);
+            echo "$numero // "; 
+            $acumulador = $acumulador + $numero;
+        }
+    $promedio= $acumulador / 5;
+    echo "<br>PROMEDIO = $promedio";
+-------------------------------------------------------------------------------------------
+//CONOZCO LA CANTIDAD N (FOR)
+
+if (isset($_POST["calcular"]))
+{
+    $acumulador= 0;
+    $n= $_POST["n"];
+    for ($i=1; $i<=$n;$i++) 
+        {
+            $numero= Rand(1,10);
+            echo "$numero // ";
+            $acumulador = $acumulador + $numero;
+        }
+    $promedio= $acumulador / $n;
+    echo "<br>PROMEDIO = $promedio";
+}
+
+?>
+------------------------------------------------------------------------------------------
+//NO CONOZCO LA CANTIDAD (WHILE)
+//Se dejan de ingresar notas cuando se genere una nota negativa
+
+<?php
+
+    $contador= 0;
+    $sumador= 0;
+    $nota= Rand(-1,10);
+    while ($nota > 0)
+        {
+            echo "$nota // ";
+            $sumador= $sumador + $nota;
+            $contador= $contador + 1;
+            $nota= Rand(-1,10);
+        }
+    if ($contador != 0)
+    {
+        $promedio= $sumador / $contador;
+        echo "<br>PROMEDIO = $promedio";
+    }
+    else
+    {
+        echo "NO SE INGRESARON NOTAS PARA PROMEDIAR";
+    }
+
+?>
+------------------------------------------------------------------------------------------

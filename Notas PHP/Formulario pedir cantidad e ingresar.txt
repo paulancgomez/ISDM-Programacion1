@@ -1,0 +1,83 @@
+//FORMULARIO
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>FORMULARIOS PARA EJERCICIOS</title>
+    </head>
+    <body>
+     <form method= "POST" action="form_for_input.php">
+        <label>Cantidad de numeros de la lista: <label>
+            <input type="number" name="cantidad"><br>
+        <input type="submit" name="Generar" value="Generar">
+</form>
+    </body>
+</html>
+
+<?php
+    if (isset($_POST['Generar']))
+        {
+            $n= $_POST['cantidad'];
+            echo "<form method= 'POST' action='calcular_promedio.php'>";
+            for ($i=1; $i<=$n; $i++)
+                {
+                    echo "<label>Numero $i: <label>";
+                    echo "<input type='number' name=num$i><br>";
+                }
+            echo "<input type='hidden' name='n' value=$n>";
+            echo "<input type='submit' name='calcular' value='Calcular Promedio'>";
+            echo "</form>";
+        }
+?>
+
+-----------------------------------------------------------------------------------------
+//ARCHIVO PHP
+
+<?php
+    $acumulador= 0;
+   $cantidad=$_POST["n"];
+   
+   
+   for ($i=1; $i<=$cantidad; $i++)
+      {
+        //$valor="num".$i;  
+        $acumulador= $acumulador + $_POST["num".$i];
+        //echo $acumulador;
+        echo $_POST["num$i"]." // ";
+      }
+      $promedio= $acumulador / $cantidad;
+    echo "<br> PROMEDIO = $promedio";
+?> 
+
+--------------------------------------------------------------------------------------
+//QUE SE VEAN LAS OPCIONES
+
+<html>
+    <!--Ejercicio 5: Escribir un algoritmo para cada uno de los siguientes puntos. Dada una lista de N
+        números ingresados por el usuario, calcular y mostrar:
+    a) La cantidad de números múltiplo de 3.
+    b) La cantidad de números múltiplo de 2.
+    c) La cantidad de números positivos.
+    d) La cantidad de números negativos.-->
+
+    <head>
+        <meta charset="utf-8">
+        <title>TP3 - EJERCICIO 5</title>
+    </head>
+    <body>
+    <h3>
+        Ejercicio 5: Escribir un algoritmo para cada uno de los siguientes puntos. Dada una lista de N números ingresados por el usuario, calcular y mostrar: <br>
+        a) La cantidad de números múltiplo de 3. <br>
+        b) La cantidad de números múltiplo de 2. <br>
+        c) La cantidad de números positivos. <br>
+        d) La cantidad de números negativos. <br>
+    </h3>
+            <form method= "POST" action= Ejercicio05.php>
+                <label>Cantidad: <label>
+                    <input type="number" name="cantidad"><br>
+                        <input type="submit" name="calcular" value="Calcular"><br>
+            </fomr>
+    </body>
+</html>
+
+-------------------------------------------------------------------------------------------

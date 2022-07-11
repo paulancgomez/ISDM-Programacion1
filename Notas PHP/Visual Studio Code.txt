@@ -1,0 +1,6 @@
+Visual Code es un editor de codigo, nada mas.
+Hay muchos editores de codigo: sublime text, block de notas.
+
+¿Instalamos el de para el usuario o de forma global?
+User Installer
+System Installer

@@ -1,0 +1,192 @@
+//ARRAY o VECTORES UNIDIMENSIONALES (tienen una sola dimension)
+
+----------------------------------------------------------------------------------------
+//TIPOS DE ARRAY EN PHP
+
+-Hay dos tipos de array en PHP:
+Arrays Indexado.
+Array Asociativo.
+----------------------------------------------------------------------------------------
+//ARRAYS INDEXADOS
+
+-Se llaman Arrays Indexados porque para acceder a cada uno de los valores que tengo en mi array yo me muevo a traves de un indice y el indice me indica la posicion de cada casilla de mi vector.
+-En PHP la primera posicion del vector es la posicion 0.
+----------------------------------------------------------------------------------------
+//MOSTRAR POSICION DE VECTOR
+
+echo $mis_numeros[2]
+
+-Me muestra el valor que esta en la posicion 2 de mi vector llamado "mis numeros"
+---------------------------------------------------------------------------------------
+//DEFINICION
+
+//FORMA 1: No le indico la posicion y PHP lo agrega al final
+
+<?php
+       $dias[]= "LUNES";
+       $dias[]= "MARTES";
+       $dias[]= "MIERCOLES";
+
+       echo $dias[1];
+?>
+
+-Mi vector se llama "dias".
+-Como yo no le indique la posicion entonces automaticamente se va a fijar cual es la primera posicion libre que tiene. Si no hay nada en el vector entonces LUNES va a ir a parar a la posicion 0.
+-En el algoritmo estoy mostrando la posicion 1 donde esta "MARTES".  
+
+
+//FORMA 2: Le indico la posicion en que yo quiero que se guarde
+
+<?php
+       $dias[1]= "LUNES";
+       $dias[2]= "MARTES";
+       $dias[3]= "MIERCOLES";
+
+       echo $dias[0];
+?>
+
+-En eco no muestra nada porque en la posicion yo no guarde nada. Empece a guardar desde la posicion 1.
+
+
+//FORMA 3
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       echo $dias[3];
+?>
+
+-Muestra el contenido de la posicion 3: JUEVES
+-El vector tiene 4 elementos
+-----------------------------------------------------------------------------------------
+//TAMAÑO DEL VECTOR
+
+count($dias);
+sizeof($dias)
+
+-funcion llamada count que devuelve la cantidad de elementos del vector que mande por parametro.
+-funcion llamada sizeof que devuelve la cantidad de elementos de un vector. 
+
+//EJEMPLO
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       echo $dias[3];
+?>
+
+----------------------------------------------------------------------------------------
+//VERIFICAR SI UNA VARIABLE ES UN ARRAY
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       if(is_array($dias)){
+             echo "ES UN ARRAY";
+       }else{
+             echo "NO ES UN ARRAY";
+       }       
+
+?>
+
+-La funcion is_array() devuelve True en caso de que sea array y False en caso de que no lo sea.
+----------------------------------------------------------------------------------------
+//RECORRER UN ARRAY
+
+//FORMA 1: Conozco el tamaño
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       for($i=0; &i<4; &i++){
+             echo $dias[$i] . "<br>";
+       }       
+?>
+
+//FORMA 2: No conozco el tamaño. Funcion count(vector)
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       for($i=0; &i<count($dias); &i++){
+             echo $dias[$i] . "<br>";
+       }       
+?>
+
+-----------------------------------------------------------------------------------------
+//AGREGAR ELEMENTOS AL ARRAY
+
+//FORMA 1
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       for($i=0; &i<count($dias); &i++){
+             echo $dias[$i] . "<br>";
+       }
+
+       $dias[] = "VIERNES";
+
+       for($i=0; &i<count($dias); &i++){
+             echo $dias[$i] . "<br>";
+       }    
+
+?>
+
+
+-Lo que hace es agregar VIERNES al final del array
+
+//FORMA 2
+
+for($i=0; $i<10; $i++){
+        $vector[$i]= Rand(1, 50);
+    }
+-----------------------------------------------------------------------------------------
+//AGREGA AL FINAL
+
+//FORMA 1
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       for($i=0; &i<count($dias); &i++){
+             echo $dias[$i] . "<br>";
+       }
+
+       $dias[] = "VIERNES";
+
+       for($i=0; &i<count($dias); &i++){
+             echo $dias[$i] . "<br>";
+       }    
+
+?>
+
+//FORMA 2
+
+<?php
+       $dias[1]=("LUNES", "MARTES", "MIERCOLES", "JUEVES");
+
+       for($i=0; &i<count($dias); &i++){
+             echo $dias[$i] . "<br>";
+       }
+
+       $dias[count($dias)] = "VIERNES";
+
+       for($i=0; &i<count($dias); &i++){
+             echo $dias[$i] . "<br>";
+       }    
+
+?>
+------------------------------------------------------------------------------------------
+//MOSTRAR VECTOR
+
+for($i=0; $i<count($vector); $i++){
+    echo $vector[$i] . " // ";
+}
+
+
+//FORMA INCORRECTA
+
+for($i=0; $i<count($vector); $i++){
+    echo "$vector[$i] //";
+}

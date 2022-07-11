@@ -1,0 +1,43 @@
+//FORMULARIO Y ARCHIVO JUNTOS
+
+<html>
+    <head>
+        <title>EJERCICIO 9 del TP2</title>
+    </head>
+    <body>
+        <form method = "POST" action = "Ejercicio9Form.php">
+            <label> Numero: <label>
+                <input type = "number" name = "numero"><br>       
+            <input type="submit" name="calcular" value="Calcular">
+        </form>
+    </body>
+</html>
+
+//FORMA 1: Sin usar una variable auxiliar
+
+<?php
+    if(isset($_POST["calcular"])){
+        if($_POST["numero"] % 2 == 0){
+            echo 'El numero' . $_POST["numero"] . 'es PAR';
+        }else{
+            echo 'El numero' . $_POST["numero"] . 'es IMPAR';
+        }
+    }
+?>
+
+//FORMA 2 : Usando una variable auxiliar $numero
+
+<?php
+    if(isset($_POST["calcular"])){
+
+        $numero = $_POST["numero"];   
+
+        if($numero % 2 == 0){
+            echo "El numero $numero es PAR";
+        }else{
+            echo "El numero $numero es IMPAR";
+        }
+    }
+?>
+
+------------------------------------------------------------------------------------------
