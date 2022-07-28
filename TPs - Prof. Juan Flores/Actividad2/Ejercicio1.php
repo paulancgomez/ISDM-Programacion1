@@ -6,6 +6,6 @@ $numero1 = 5;
 $numero2 = 3;
 
 $suma = $numero1 + $numero2;
-echo "La suma es igual a: $suma";
+echo "La suma " . $numero1 . " + " . $numero2 . " es igual a: $suma";
 
 ?>

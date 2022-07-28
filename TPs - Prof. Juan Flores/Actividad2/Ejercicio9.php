@@ -1,5 +1,6 @@
 <?php
-//Ejercicio 9: Desarrolle un algoritmo que permita leer un valor cualquiera X y escribir si dicho número es par o impar.
+/*  Ejercicio 9:
+    Desarrolle un algoritmo que permita leer un valor cualquiera X y escribir si dicho número es par o impar.*/
     $numero = 5;
     
     if($numero % 2 == 0){
